@@ -6,22 +6,14 @@ import java.util.Scanner;
     public class HOMEWORK {
         public static void main(String[] args) {
 
-            //Массивы
-            String[] currency = {"- EUR", "- USD", "- TL", "- EXIT"};
-            double[] currencyRates = new double[3];
 
-            if (args.length == 3) {
-                currencyRates[0] = Double.parseDouble(args[0]);
-                currencyRates[1] = Double.parseDouble(args[1]);
-                currencyRates[2] = Double.parseDouble(args[2]);
-            }
 
             Scanner scanner = new Scanner(System.in);
             String currencyFrom;
 
 
             // Метод ХЕЛОУ
-            Hello(currency);
+            Hello();
 
             do {
 
@@ -62,6 +54,29 @@ import java.util.Scanner;
 
         }
 
+        public class CurrencyConverter {
+            String[] currency ;
+            double[] currencyRates ;
+
+
+            public CurrencyConverter(){
+                this.currency = new String[]{"- EUR", "- USD", "- TL", "- EXIT"};
+                this.currencyRates = new double[]{1, 0.92, 0.03};
+
+
+            }
+
+            public CurrencyConverter(double[] currencyRates){
+                this.currencyRates = currencyRates;
+            }
+            public CurrencyConverter(double[] currencyRates, String[] currency)
+            {
+                this.currency = currency;
+                this.currencyRates = currencyRates;
+
+            }
+
+        }
 
         public static double getRateValue(String currency, double[] currencyRates) {
             double rate;
